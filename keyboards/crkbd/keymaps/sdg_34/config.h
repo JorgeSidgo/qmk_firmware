@@ -27,14 +27,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define MASTER_LEFT
 // #define MASTER_RIGHT
 // #define EE_HANDS
-
-#define TAPPING_FORCE_HOLD
-#define TAPPING_TERM 100
-
+#define TAPPING_TERM 200
+#define QUICK_TAP_TERM 0
 
 //#define QUICK_TAP_TERM 0
 //#define TAPPING_TERM 100
-#define USB_MAX_POWER_CONSUMPTION 500
 #ifdef RGB_MATRIX_ENABLE
 #   define SPLIT_LAYER_STATE_ENABLE
 #   define RGB_MATRIX_KEYPRESSES // reacts to keypresses

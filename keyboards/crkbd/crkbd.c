@@ -179,30 +179,6 @@ static void render_luna(int LUNA_X, int LUNA_Y) {
 
 /* KEYBOARD PET END */
 
-static void oled_render_layer_state(void) {
-    oled_write_P(PSTR("\n\n"), false);
-    oled_write_ln_P(PSTR("LAYER"), false);
-    switch (get_highest_layer(layer_state)) {
-        case 0:
-            oled_write_ln_P(PSTR("BASE"), false);
-            break;
-        case 1:
-            oled_write_ln_P(PSTR("LOWER"), false);
-            break;
-        case 2:
-            oled_write_ln_P(PSTR("RAISE"), false);
-            break;
-        case 3:
-            oled_write_ln_P(PSTR("EXTRA"), false);
-            break;
-        default:
-            oled_write_ln_P(PSTR("Undef"), false);
-            break;
-    }
-
-    render_luna(0, 13);
-}
-
 char     key_name = ' ';
 uint16_t last_keycode;
 uint8_t  last_row;
@@ -235,6 +211,31 @@ static void set_keylog(uint16_t keycode, keyrecord_t *record) {
     last_row = record->event.key.row;
     last_col = record->event.key.col;
 }
+
+static void oled_render_layer_state(void) {
+    oled_write_P(PSTR("\n"), false);
+    oled_write_ln_P(PSTR("LAYER"), false);
+    switch (get_highest_layer(layer_state)) {
+        case 0:
+            oled_write_ln_P(PSTR("BASE"), false);
+            break;
+        case 1:
+            oled_write_ln_P(PSTR("LOWER"), false);
+            break;
+        case 2:
+            oled_write_ln_P(PSTR("RAISE"), false);
+            break;
+        case 3:
+            oled_write_ln_P(PSTR("EXTRA"), false);
+            break;
+        default:
+            oled_write_ln_P(PSTR("Undef"), false);
+            break;
+    }
+    render_luna(0, 13);
+}
+
+
 
 __attribute__((weak)) void oled_render_logo(void) {
     // clang-format off
@@ -275,6 +276,20 @@ __attribute__((weak)) void oled_render_logo(void) {
     // clang-format on
     oled_write_raw_P(crkbd_logo, sizeof(crkbd_logo));
 }
+
+// static void oled_render_keylog(void) {
+//     oled_write_P(PSTR("\n\n"), false);
+//     const char *last_row_str = get_u8_str(last_row, ' ');
+//     oled_write(depad_str(last_row_str, ' '), false);
+//     oled_write_P(PSTR("x"), false);
+//     const char *last_col_str = get_u8_str(last_col, ' ');
+//     oled_write(depad_str(last_col_str, ' '), false);
+//     oled_write_P(PSTR(", k"), false);
+//     const char *last_keycode_str = get_u16_str(last_keycode, ' ');
+//     oled_write(depad_str(last_keycode_str, ' '), false);
+//     oled_write_P(PSTR(":"), false);
+//     oled_write_char(key_name, false);
+// }
 
 bool oled_task_user(void) {
     current_wpm   = get_current_wpm();
