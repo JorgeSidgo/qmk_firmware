@@ -32,11 +32,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define TAPPING_TERM 100
 
 
+
 //#define QUICK_TAP_TERM 0
 //#define TAPPING_TERM 100
 #define USB_MAX_POWER_CONSUMPTION 500
 #ifdef RGB_MATRIX_ENABLE
-#   define SPLIT_LAYER_STATE_ENABLE
 #   define RGB_MATRIX_KEYPRESSES // reacts to keypresses
 // #   define RGB_MATRIX_KEYRELEASES // reacts to keyreleases (instead of keypresses)
 #   define RGB_DISABLE_WHEN_USB_SUSPENDED // turn off effects when suspended
@@ -48,6 +48,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #    define RGB_MATRIX_SAT_STEP 8
 #    define RGB_MATRIX_VAL_STEP 8
 #    define RGB_MATRIX_SPD_STEP 10
+     #define RGBLIGHT_EFFECT_STATIC_GRADIENT
+#    define ENABLE_RGB_MATRIX_SOLID_COLOR
+#    define ENABLE_RGB_MATRIX_RAINBOW_BEACON
+#    define ENABLE_RGB_MATRIX_CYCLE_UP_DOWN
 
 /* Enable the animations you want/need.  You may need to enable only a small number of these because       *
  * they take up a lot of space.  Enable and confirm that you can still successfully compile your firmware. */
@@ -57,4 +61,5 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #endif
 
+#define SPLIT_WPM_ENABLE //Enable WPM across split keyboards (+268).
 #define OLED_FONT_H "keyboards/crkbd/lib/glcdfont.c"

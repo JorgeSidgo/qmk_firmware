@@ -220,13 +220,16 @@ static void oled_render_layer_state(void) {
             oled_write_ln_P(PSTR("BASE"), false);
             break;
         case 1:
-            oled_write_ln_P(PSTR("LOWER"), false);
+            oled_write_ln_P(PSTR("MAC"), false);
             break;
         case 2:
-            oled_write_ln_P(PSTR("RAISE"), false);
+            oled_write_ln_P(PSTR("LOWER"), false);
             break;
         case 3:
-            oled_write_ln_P(PSTR("EXTRA"), false);
+            oled_write_ln_P(PSTR("RAISE"), false);
+            break;
+        case 4:
+            oled_write_ln_P(PSTR("FUNC"), false);
             break;
         default:
             oled_write_ln_P(PSTR("Undef"), false);
