@@ -1,0 +1,4 @@
+#define ENCODER_DIRECTION_FLIP
+#define ENCODERS_PAD_A { D7, D7 }
+#define ENCODERS_PAD_B { B2, B6 }
+#define ENCODER_RESOLUTION 4
